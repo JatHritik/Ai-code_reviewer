@@ -6,7 +6,7 @@ const cors = require('cors');
 const app = express();
 
 // Multiple origins allow karne ka method
-const allowedOrigins = [
+const allowedOrigins = ['https://ai-code-reviewer-adnwrtqo1-hritik-s-projects-652fd219.vercel.app/',
   'http://localhost:5173',
   'http://localhost:5174',
   'http://localhost:5175',

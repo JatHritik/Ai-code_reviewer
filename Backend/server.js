@@ -6,11 +6,12 @@ const cors = require('cors');
 const app = express();
 
 // Multiple origins allow karne ka method
-const allowedOrigins = ['https://ai-code-reviewer-adnwrtqo1-hritik-s-projects-652fd219.vercel.app/',
+const allowedOrigins = [
   'http://localhost:5173',
   'http://localhost:5174',
   'http://localhost:5175',
   'http://localhost:5176', // tumhara current local port
+  'https://ai-code-reviewer-adnwrtqo1-hritik-s-projects-652fd219.vercel.app/',
   'https://ai-code-reviewer-git-main-hritik-s-projects-652fd219.vercel.app' // vercel ka URL
 ];
 
@@ -41,5 +42,4 @@ app.listen(PORT, () => {
 });
 
 
-process.on('SIGTERM', () => process.exit(0));
-process.on('SIGINT', () => process.exit(0));
+

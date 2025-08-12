@@ -35,7 +35,11 @@ app.get('/', (req, res) => {
 
 app.use('/ai', aiRoutes);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`✅ Server is running on ${PORT}`);
 });
+
+
+process.on('SIGTERM', () => process.exit(0));
+process.on('SIGINT', () => process.exit(0));

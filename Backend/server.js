@@ -6,7 +6,7 @@ const cors = require("cors");
 
 app.use(cors({
   origin: ["ai-code-reviewer-hritik-s-projects-652fd219.vercel.app"],
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  methods: ["GET", "POST"],
   credentials: true
 }));
 const app = express()

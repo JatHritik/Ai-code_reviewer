@@ -6,27 +6,13 @@ const cors = require('cors');
 const app = express();
 
 // Multiple origins allow karne ka method
-const allowedOrigins = [
-  'http://localhost:5173',
-  'http://localhost:5174',
-  'http://localhost:5175',
-  'http://localhost:5176', // tumhara current local port
-  'https://ai-code-reviewer-adnwrtqo1-hritik-s-projects-652fd219.vercel.app/',
-  'https://ai-code-reviewer-git-main-hritik-s-projects-652fd219.vercel.app' // vercel ka URL
-];
-
 app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      console.log(`❌ CORS blocked for origin: ${origin}`);
-      callback(new Error('CORS not allowed'));
-    }
-  },
+  origin: 'https://ai-code-reviewer-two-snowy.vercel.app',
   methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 }));
+
 
 app.use(express.json());
 

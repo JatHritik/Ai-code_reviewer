@@ -9,16 +9,17 @@ const app = express();
 const allowedOrigins = [
   'http://localhost:5173',
   'http://localhost:5174',
-  'http://localhost:5175', // tumhara local port
-  'https://ai-code-reviewer-git-main-hritik-s-projects-652fd219.vercel.app'
+  'http://localhost:5175',
+  'http://localhost:5176', // tumhara current local port
+  'https://ai-code-reviewer-git-main-hritik-s-projects-652fd219.vercel.app' // vercel ka URL
 ];
 
 app.use(cors({
   origin: function (origin, callback) {
-    // Agar origin allowed list me hai ya origin null hai (Postman / server request)
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
+      console.log(`❌ CORS blocked for origin: ${origin}`);
       callback(new Error('CORS not allowed'));
     }
   },
@@ -36,5 +37,5 @@ app.use('/ai', aiRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server is running on ${PORT}`);
+  console.log(`✅ Server is running on ${PORT}`);
 });

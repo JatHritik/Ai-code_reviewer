@@ -8,7 +8,15 @@ const app = express();
 // Multiple origins allow karne ka method
 app.use(cors({
   origin: 'https://ai-code-reviewer-two-snowy.vercel.app',
-  methods: ['GET', 'POST'],
+  methods: ['GET', 'POST', 'OPTIONS'], // OPTIONS add kiya
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
+
+// OPTIONS requests ko handle karna (important for CORS)
+app.options('*', cors({
+  origin: 'https://ai-code-reviewer-two-snowy.vercel.app',
+  methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 }));
